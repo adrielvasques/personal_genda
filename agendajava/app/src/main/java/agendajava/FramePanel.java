@@ -4,8 +4,12 @@ package agendajava;
 //Panel
 
 import javax.swing.*;
+
+import agendajava.FramePanel.ButtonListener4;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import java.util.*;
 import java.text.SimpleDateFormat;
@@ -194,6 +198,7 @@ public class FramePanel extends JFrame
               if((year>appyear)||((year == appyear)&&(sira+1 >=appmonth))||((year == appyear)&&(sira+1 >=appmonth)&&(i>appday)))//checks if the day that the button resembles is in the correct range for an appointment
             {
             button.addActionListener(listener4);//adds the action listener
+            button.putClientProperty("date", year + "-" + (sira + 1) + "-" + i);  
               }
             }
             days.add(button);//adds the button to the panel
@@ -272,6 +277,7 @@ public class FramePanel extends JFrame
             if((year>appyear)||((year == appyear)&&(sira+1 >=appmonth))||((year == appyear)&&(sira+1 >=appmonth)&&(i>appday)))//checks if the day that the button resembles is in the correct range for an appointment
             {
             button.addActionListener(listener4);//adds the action listener
+            button.putClientProperty("date", year + "-" + (sira + 1) + "-" + i);  
             }
             }
             days.add(button);//adds the button to the panel
@@ -375,6 +381,7 @@ public class FramePanel extends JFrame
               if((year>appyear)||((year == appyear)&&(sira+1 >=appmonth))||((year == appyear)&&(sira+1 >=appmonth)&&(i>appday)))//checks if the day that the button resembles is in the correct range for an appointment
             {
             button.addActionListener(listener4);//adds the action listener
+            button.putClientProperty("date", year + "-" + (sira + 1) + "-" + i);  
             }
             }
             days.add(button);//adds the button to the days panel
@@ -491,6 +498,7 @@ public class FramePanel extends JFrame
               if((nextYear>appyear)||((nextYear == appyear)&&(nextMonth >=appmonth))||((nextYear == appyear)&&(nextMonth >=appmonth)&&(i>appday)))//checks if the day that the button resembles is in the correct range for an appointment
             {
             button.addActionListener(listener4);//adds the action listener
+            button.putClientProperty("date", year + "-" + (sira + 1) + "-" + i);  
               }
             }
             days.add(button);//adds the button to the panel
@@ -573,6 +581,7 @@ public class FramePanel extends JFrame
   }
   //____________________
   //action listener for making appointments by pressing buttons
+  /**
   class ButtonListener4 implements ActionListener
     {
       public void actionPerformed(ActionEvent event)
@@ -593,6 +602,37 @@ public class FramePanel extends JFrame
         }
       } 
     }
+  */
+  class ButtonListener4 implements ActionListener {
+    private boolean isDayWindowOpen = false; // Variável para controlar se a janela DayWindow está aberta
+
+    public void actionPerformed(ActionEvent event) {
+        // Verifique se a janela DayWindow já está aberta
+        if (isDayWindowOpen) {
+            return;
+        }
+
+        String appointmentDate = (String) ((JButton) event.getSource()).getClientProperty("date");
+        DayWindow newAppointmentWindow = new DayWindow(appointmentDate);
+        newAppointmentWindow.setResizable(false); // Não redimensionável
+        newAppointmentWindow.setTitle(appointmentDate); // Define o título
+        newAppointmentWindow.setLocationRelativeTo(null); // Centraliza na tela
+        newAppointmentWindow.setVisible(true); // Torna visível
+
+        // Defina isDayWindowOpen como true quando a janela DayWindow for aberta
+        newAppointmentWindow.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                isDayWindowOpen = false;
+            }
+        });
+
+        // Define isDayWindowOpen como true para impedir que mais janelas sejam abertas durante esta ação
+        isDayWindowOpen = true;
+    }
+}
+
+
   public void oldAppointments()//method for getting the old appointments
   {
     try

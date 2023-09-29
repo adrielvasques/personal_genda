@@ -6,6 +6,7 @@ public class AppointmentTask {
     private int idCompromisso;
     private String data;
     private String hora;
+    private String titulo; // Adicionado o campo de título
     private String descricao;
     private String categoria;
     private String status;
@@ -15,10 +16,11 @@ public class AppointmentTask {
     }
 
     // Construtor com parâmetros
-    public AppointmentTask(int idCompromisso, String data, String hora, String descricao, String categoria, String status) {
+    public AppointmentTask(int idCompromisso, String data, String hora, String titulo, String descricao, String categoria, String status) {
         this.idCompromisso = idCompromisso;
         this.data = data;
         this.hora = hora;
+        this.titulo = titulo;
         this.descricao = descricao;
         this.categoria = categoria;
         this.status = status;
@@ -47,6 +49,18 @@ public class AppointmentTask {
 
     public void setHora(String hora) {
         this.hora = hora;
+    }
+    
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        try {
+            this.titulo = new String(titulo.getBytes("UTF-8"), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            System.err.println("Erro de codificação UTF-8: " + e.getMessage());
+        }
     }
 
     public String getDescricao() {
@@ -82,7 +96,7 @@ public class AppointmentTask {
     // Override do método toString para exibir informações do compromisso
     @Override
     public String toString() {
-        return "Compromisso [idCompromisso=" + idCompromisso + ", data=" + data + ", hora=" + hora + ", descricao=" + descricao
+        return "Compromisso [idCompromisso=" + idCompromisso + ", data=" + data + ", hora=" + hora + ", titulo=" + titulo + ", descricao=" + descricao
                 + ", categoria=" + categoria + ", status=" + status + "]";
     }
 }
