@@ -176,7 +176,7 @@ The application starts in the form of a calendar, with navigation controls at th
 Days have an associated event. Each day, when clicked once, triggers an event that has logic to retrieve the specific selected day. When double-clicked, a screen is triggered that provides the option to view the day's appointments or add a new one.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/dias.jpg?token=GHSAT0AAAAAACKUAAMAQ7J4C6OLCRZKWEFUZLD5ALQ"width="350" title="Initial Screen">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/dias.jpg?token=GHSAT0AAAAAACKUAAMAQ7J4C6OLCRZKWEFUZLD5ALQ"width="350" title="Days">
     <n><figcaption>A screen with a double click on a selected day</figcaption></n>
 </p>
 
@@ -184,21 +184,21 @@ Days have an associated event. Each day, when clicked once, triggers an event th
 If there is nothing associated with that day, clicking on 'Ver compromissos do dia' will trigger a notification stating that there are no activities for that day.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/dias-sem-compromisso.jpg?token=GHSAT0AAAAAACKUAAMANFFW7AYFIOMT2JYKZLD5GFA"width="350" title="Initial Screen">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/dias-sem-compromisso.jpg?token=GHSAT0AAAAAACKUAAMANFFW7AYFIOMT2JYKZLD5GFA"width="350" title="Screen for a day without appointments">
     <n><figcaption>Screen for a day without appointments</figcaption></n>
 </p>
 
 If there are appointments, another screen will open displaying the day's appointments in a paginated manner.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/dias-com-compomisso.jpg?token=GHSAT0AAAAAACKUAAMAQGZSGYPV647O6YOWZLD5IEQ" title="Initial Screen">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/dias-com-compomisso.jpg?token=GHSAT0AAAAAACKUAAMBXQWTYYMZVURXU7H2ZLD6ZQA" title="Screen for a day with appointments">
     <n><figcaption>Screen for a day with appointments</figcaption></n>
 </p>
 
 On the appointments screen, you can double-click on items in the list to edit their content. It's possible to edit the title, description, time, category, and status.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/double-click-image.jpg?token=GHSAT0AAAAAACKUAAMBKRA6WLLYNVBREBI4ZLD54ZA" title="Initial Screen">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/double-click-image.jpg?token=GHSAT0AAAAAACKUAAMA435TDVOH3Z2WNPN6ZLD62NA" title="Double-click on items in the list to edit their content">
     <n><figcaption>Double-click on items in the list to edit their content</figcaption></n>
 </p>
 
@@ -207,27 +207,27 @@ On the appointments screen, you can double-click on items in the list to edit th
 "To add a new appointment, simply double-click on the selected day, and then click on the green button labeled 'Adicionar Novo Compromisso'.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/adding_new_task.jpg?token=GHSAT0AAAAAACKUAAMBYTCSDRJTLH42U46WZLD57TQ" title="Initial Screen">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/adding_new_task.jpg?token=GHSAT0AAAAAACKUAAMA7NNFSONKL7VJ5T2WZLD625A" title="Screen with the event of a new Appointment">
     <n><figcaption>Screen with the event of a new Appointment</figcaption></n>
 </p>
 
 Data entry is subject to data validation, and if a requirement is not met, a warning will be raised, such as in the case of an invalid time format.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/treated-insertion.jpg?token=GHSAT0AAAAAACKUAAMBTNKKS26T3ELEHXL2ZLD6DGA" title="Initial Screen">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/treated-insertion.jpg?token=GHSAT0AAAAAACKUAAMARP2U4MS3SMWPYMP6ZLD63MA" title="Screen with an event for an incorrect time format">
     <n><figcaption>Screen with an event for an incorrect time format</figcaption></n>
 </p>
 
 If the data is valid, it is inserted into the system.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/addd-aaaa.png?token=GHSAT0AAAAAACKUAAMBCNAGD6BMTWPCOLZMZLD6JVQ" title="Initial Screen">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/addd-aaaa.png?token=GHSAT0AAAAAACKUAAMATJGFAHONZWEQHFRUZLD64BA" title="Inserting a valid input">
     <n><figcaption>Inserting a valid input</figcaption></n>
 </p>
 
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/saving_data.jpg?token=GHSAT0AAAAAACKUAAMBUJFXCX5TIXIUU6VEZLD6OQQ" title="Initial Screen">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/saving_data.jpg?token=GHSAT0AAAAAACKUAAMBZUFDU7CLLD62YQXWZLD67TA" title="Valid inputed inserted on database">
     <n><figcaption>Valid inputed inserted on database</figcaption></n>
 </p>
 
@@ -235,7 +235,7 @@ If the data is valid, it is inserted into the system.
 When clicking on 'Consultas Avançadas' a new screen opens.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/data_base_reach.jpg?token=GHSAT0AAAAAACKUAAMBASBNWLKDAVMZJEUCZLD6TLQ" title="Initial Screen">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/data_base_reach.jpg?token=GHSAT0AAAAAACKUAAMBASBNWLKDAVMZJEUCZLD6TLQ" title="Advanced Queries">
     <n><figcaption>Advanced Queries (Consultas Avançadas)</figcaption></n>
 </p>
 
@@ -245,21 +245,41 @@ In the center of the screen, there is an advanced search window overlaid on the 
 If you click on 'Search' (Pesquisar) without entering any information, it will return all the information from the database.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/data_base_reach.jpg?token=GHSAT0AAAAAACKUAAMBASBNWLKDAVMZJEUCZLD6TLQ" title="Initial Screen">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/data_base_reach_2.jpg?token=GHSAT0AAAAAACKUAAMA5GCCIEG6E72PSV5UZLD7AWA" title="Result of an empty search">
     <n><figcaption>Result of an empty search</figcaption></n>
 </p>
 
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/data_base_reach_3.jpg?token=GHSAT0AAAAAACKUAAMAITQT3L2S7ODGOQZKZLD6WNA" title="Initial Screen">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/data_base_reach_3.jpg?token=GHSAT0AAAAAACKUAAMAITQT3L2S7ODGOQZKZLD6WNA" title="Comparing with the database">
     <n><figcaption>Comparing with the database</figcaption></n>
 </p>
 
+It is possible to double-click on items in the results screen and obtain more details about the activity. Here, I did not proceed with the option to edit the application.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/Imagem16.jpg?token=GHSAT0AAAAAACKUAAMAIBEPIYV26MBTDZJ2ZLD7DBQ" title="Viewing content">
+    <n><figcaption>Viewing content. Screen with double-click trigger to view details of the result item.</figcaption></n>
+</p>
+
+For example, You can perform other searches, such as appointments scheduled for 22:22.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/Imagem17.jpg?token=GHSAT0AAAAAACKUAAMBGYWJSOMX4NAM7SCGZLD7FNA" title="Screen for searching appointments scheduled for 22:22">
+    <n><figcaption>Screen for searching appointments scheduled for 22:22.</figcaption></n>
+</p>
+You can narrow the search down to January.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/Imagem18.png?token=GHSAT0AAAAAACKUAAMBM7TOWGFXU2YR2VCSZLD7GVQ" title="Screen for searching appointments scheduled for 22:22 in January">
+    <n><figcaption>Screen for searching appointments scheduled for 22:22 in January.</figcaption></n>
+</p>
+
+## Notes
+Despite the application having some flaws, I believe it is quite comprehensive for a v1 version. Another point to highlight is that there could be improvements in terms of screen design and the program's overall flow. Additionally, the code could have been better organized with improved folder structures, code structure, and class naming conventions.
 
 
 ## Feedback
 Got some thoughts or suggestions? Don't hesitate to reach out to me at avs@icomp.ufam.edu.br. I'd love to hear from you! 💡
 
 ## Ressources
-This project is based on: https://github.com/Sven-Bo/streamlit-income-expense-tracker
+This project is based on: https://github.com/skarabocu/Personal-Agenda
