@@ -1,6 +1,8 @@
 package agendajava.entity;
 
 import java.io.UnsupportedEncodingException;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class AppointmentTask {
     private int idCompromisso;
@@ -44,7 +46,15 @@ public class AppointmentTask {
     }
 
     public String getHora() {
-        return hora;
+        // Verifica se a hora é válida antes de formatar
+        try {
+            LocalTime time = LocalTime.parse(hora);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+            return time.format(formatter);
+        } catch (Exception e) {
+            // Tratar erros de parsing ou formatação aqui, se necessário
+            return hora; // Retorna a hora sem formatação em caso de erro
+        }
     }
 
     public void setHora(String hora) {

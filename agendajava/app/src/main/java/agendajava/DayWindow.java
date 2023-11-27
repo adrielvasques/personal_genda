@@ -1,15 +1,30 @@
 package agendajava;
-
+import agendajava.AppointmentDAO.AppointmentTaskDAO;
 import javax.swing.*;
+import java.util.List;
+
+import agendajava.entity.AppointmentTask;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 
 public class DayWindow extends JFrame {
     private static String data;
-    private NewAppointmentWindow newAppointmentWindow; // Referência para a janela NewAppointmentWindow
+    private CompromissosGUI compromissosGUI;
+    private NewAppointmentWindow newAppointmentWindow;
+    private JButton selectedButton; // Variável para rastrear o botão selecionado
+    private static boolean janelaAberta = false; // Variável para rastrear se a janela está aberta
+    private JButton viewAppointmentsButton;
 
-    public DayWindow(String data) {
+    public interface OnClose {
+        void onClose();
+    }
+
+    public DayWindow(String data, OnClose onClose) {
         DayWindow.data = data;
         setTitle("Compromissos do Dia");
         setSize(400, 150);
@@ -39,24 +54,76 @@ public class DayWindow extends JFrame {
         constraints.gridy = 1;
         panel.add(addAppointmentButton, constraints);
 
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                onClose.onClose();
+            }
+        });
+
         viewAppointmentsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Lógica para abrir a tela de visualização de compromissos do dia
-                // Você pode criar uma nova tela para isso
+                System.out.println("viewAppointmentsButton.addActionListener janela: " + janelaAberta);
+
+                if (!janelaAberta) {
+                    List<AppointmentTask> tarefas = AppointmentTaskDAO.recuperarTarefasPorDia(data);
+                    if (!tarefas.isEmpty()) {
+                        compromissosGUI = new CompromissosGUI(tarefas, data, () -> { janelaAberta = false; });
+                        compromissosGUI.setVisible(true);
+                        janelaAberta = true;
+                        compromissosGUI.addWindowListener(new WindowAdapter() {
+                            @Override
+                            public void windowClosing(WindowEvent windowEvent) {
+                                janelaAberta = false;
+                            }
+                        });
+
+                        // Mantenha o botão como vermelho se não estiver selecionado
+                        if (selectedButton != viewAppointmentsButton) {
+                            viewAppointmentsButton.setBackground(Color.RED);
+                            selectedButton = viewAppointmentsButton;
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(DayWindow.this, "Nenhuma tarefa encontrada para a data " + data);
+                    }
+                }
             }
         });
 
         addAppointmentButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Verifica se já existe uma instância de NewAppointmentWindow
-                if (newAppointmentWindow == null) {
-                    newAppointmentWindow = new NewAppointmentWindow(data);
-                }
 
-                // Torna a NewAppointmentWindow visível
-                newAppointmentWindow.setVisible(true);
+                if (!janelaAberta) {
+                    newAppointmentWindow = new NewAppointmentWindow(data, () -> { janelaAberta = false; System.out.println("novo onclose"); });
+                    newAppointmentWindow.setVisible(true);
+                    janelaAberta = true;
+                    newAppointmentWindow.addWindowListener(new WindowAdapter() {
+                        @Override
+                        public void windowClosing(WindowEvent windowEvent) {
+                            janelaAberta = false;
+                        }
+                    });
+
+                    // Mantenha o botão como verde se não estiver selecionado
+                    if (selectedButton != addAppointmentButton) {
+                        addAppointmentButton.setBackground(Color.GREEN);
+                        selectedButton = addAppointmentButton;
+                    }
+                }
+            }
+        });
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent windowEvent) {
+                if (compromissosGUI != null) {
+                    compromissosGUI.dispose();
+                }
+                if (newAppointmentWindow != null) {
+                    newAppointmentWindow.dispose();
+                }
             }
         });
 
@@ -64,10 +131,14 @@ public class DayWindow extends JFrame {
         setLocationRelativeTo(null);
     }
 
+    public static String getData() {
+        return data;
+    }
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                DayWindow window = new DayWindow(data);
+                DayWindow window = new DayWindow(data, () -> {});
                 window.setVisible(true);
             }
         });

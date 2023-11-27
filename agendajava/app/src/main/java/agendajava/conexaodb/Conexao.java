@@ -20,7 +20,7 @@ public class Conexao {
             System.err.println("Erro ao conectar ao banco de dados: " + e.getMessage());
             e.printStackTrace();
         }finally{
-            System.out.println("Conexão obtida com sucesso!");
+            //System.out.println("Conexão obtida com sucesso!");
         }
         return null;
     }
