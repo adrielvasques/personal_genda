@@ -1,4 +1,3 @@
-
 # Personal Agenda Management System
 
 The aim of this work is to develop a system to manage and organize a personal agenda, including appointments.
@@ -141,19 +140,123 @@ tasks.withType<Javadoc>{
 ./gradlew.bat run"
 ```
 
-## Project structure and source code
+## Application Important files
+<p align="center">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/folder_project.png?token=GHSAT0AAAAAACKUAAMBF5I3PHWWNDF6A67IZLD33IQ" width="350">
+</p>
 
-## Run the app
+The source code, where the entire application is structured, can be found at:
 ```
-# Verify requirements
-pip install -r requirements.txt
-
-# vanilla terminal
-streamlit run app.py
-
-# quit
-ctrl-c
+/agenda_pp/agendajava/app/src/main/java/agendajava
 ```
+There are three important folders in agendajava:
+
+- AppointmentDAO contains all database queries.
+- Conexaodb contains the structure for connecting to the database.
+- Entity contains the simplest concept of a task.
+- In the main folder, you will find screens and content related to user display.
+- The entry point is the App.java file."
+
+
+## Application Walkthrough
+
+**1. Initial Screen**
+
+The application starts in the form of a calendar, with navigation controls at the top to move forward and backward in months. Below, the days of the week are organized according to the logic that determines the start of the week, ensuring accuracy. Next, the days of the month are displayed, with those having scheduled appointments highlighted in red. At the bottom of the screen, there is a text box indicating the current date and a button to access advanced database queries.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/initial-screen.jpg?token=GHSAT0AAAAAACKUAAMBHIW2D4F4YHBDFZ4OZLD44XQ" width="350" title="Initial Screen">
+    <n><figcaption>Initial Screen</figcaption></n>
+</p>
+
+
+
+**2. The Days**
+
+Days have an associated event. Each day, when clicked once, triggers an event that has logic to retrieve the specific selected day. When double-clicked, a screen is triggered that provides the option to view the day's appointments or add a new one.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/dias.jpg?token=GHSAT0AAAAAACKUAAMAQ7J4C6OLCRZKWEFUZLD5ALQ"width="350" title="Initial Screen">
+    <n><figcaption>A screen with a double click on a selected day</figcaption></n>
+</p>
+
+
+If there is nothing associated with that day, clicking on 'Ver compromissos do dia' will trigger a notification stating that there are no activities for that day.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/dias-sem-compromisso.jpg?token=GHSAT0AAAAAACKUAAMANFFW7AYFIOMT2JYKZLD5GFA"width="350" title="Initial Screen">
+    <n><figcaption>Screen for a day without appointments</figcaption></n>
+</p>
+
+If there are appointments, another screen will open displaying the day's appointments in a paginated manner.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/dias-com-compomisso.jpg?token=GHSAT0AAAAAACKUAAMAQGZSGYPV647O6YOWZLD5IEQ" title="Initial Screen">
+    <n><figcaption>Screen for a day with appointments</figcaption></n>
+</p>
+
+On the appointments screen, you can double-click on items in the list to edit their content. It's possible to edit the title, description, time, category, and status.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/double-click-image.jpg?token=GHSAT0AAAAAACKUAAMBKRA6WLLYNVBREBI4ZLD54ZA" title="Initial Screen">
+    <n><figcaption>Double-click on items in the list to edit their content</figcaption></n>
+</p>
+
+**3. Adding a new appointment**
+
+"To add a new appointment, simply double-click on the selected day, and then click on the green button labeled 'Adicionar Novo Compromisso'.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/adding_new_task.jpg?token=GHSAT0AAAAAACKUAAMBYTCSDRJTLH42U46WZLD57TQ" title="Initial Screen">
+    <n><figcaption>Screen with the event of a new Appointment</figcaption></n>
+</p>
+
+Data entry is subject to data validation, and if a requirement is not met, a warning will be raised, such as in the case of an invalid time format.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/treated-insertion.jpg?token=GHSAT0AAAAAACKUAAMBTNKKS26T3ELEHXL2ZLD6DGA" title="Initial Screen">
+    <n><figcaption>Screen with an event for an incorrect time format</figcaption></n>
+</p>
+
+If the data is valid, it is inserted into the system.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/addd-aaaa.png?token=GHSAT0AAAAAACKUAAMBCNAGD6BMTWPCOLZMZLD6JVQ" title="Initial Screen">
+    <n><figcaption>Inserting a valid input</figcaption></n>
+</p>
+
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/saving_data.jpg?token=GHSAT0AAAAAACKUAAMBUJFXCX5TIXIUU6VEZLD6OQQ" title="Initial Screen">
+    <n><figcaption>Valid inputed inserted on database</figcaption></n>
+</p>
+
+**4. Advanced Queries**
+When clicking on 'Consultas Avançadas' a new screen opens.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/data_base_reach.jpg?token=GHSAT0AAAAAACKUAAMBASBNWLKDAVMZJEUCZLD6TLQ" title="Initial Screen">
+    <n><figcaption>Advanced Queries (Consultas Avançadas)</figcaption></n>
+</p>
+
+In the center of the screen, there is an advanced search window overlaid on the calendar. This window contains multiple form fields to refine the event search in the calendar. The fields include "Month", "Day", "Year", "Time (H:Mm)", "Title", "Description", "Category", and "Status", all of which are empty, awaiting user input. In the bottom right corner of this search window, there is a "Search" button.
+
+
+If you click on 'Search' (Pesquisar) without entering any information, it will return all the information from the database.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/data_base_reach.jpg?token=GHSAT0AAAAAACKUAAMBASBNWLKDAVMZJEUCZLD6TLQ" title="Initial Screen">
+    <n><figcaption>Result of an empty search</figcaption></n>
+</p>
+
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/data_base_reach_3.jpg?token=GHSAT0AAAAAACKUAAMAITQT3L2S7ODGOQZKZLD6WNA" title="Initial Screen">
+    <n><figcaption>Comparing with the database</figcaption></n>
+</p>
+
+
+
 
 ## Feedback
 Got some thoughts or suggestions? Don't hesitate to reach out to me at avs@icomp.ufam.edu.br. I'd love to hear from you! 💡
