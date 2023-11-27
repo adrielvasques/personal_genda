@@ -137,7 +137,7 @@ tasks.withType<Javadoc>{
 ```
 **For Windows:**
 ```
-./gradlew.bat run"
+./gradlew.bat run
 ```
 
 ## Application Important files
@@ -204,7 +204,7 @@ On the appointments screen, you can double-click on items in the list to edit th
 
 **3. Adding a new appointment**
 
-"To add a new appointment, simply double-click on the selected day, and then click on the green button labeled 'Adicionar Novo Compromisso'.
+To add a new appointment, simply double-click on the selected day, and then click on the green button labeled 'Adicionar Novo Compromisso'.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/adding_new_task.jpg?token=GHSAT0AAAAAACKUAAMA7NNFSONKL7VJ5T2WZLD625A" title="Screen with the event of a new Appointment">
@@ -232,6 +232,7 @@ If the data is valid, it is inserted into the system.
 </p>
 
 **4. Advanced Queries**
+
 When clicking on 'Consultas Avançadas' a new screen opens.
 
 <p align="center">
@@ -248,7 +249,6 @@ If you click on 'Search' (Pesquisar) without entering any information, it will r
   <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/data_base_reach_2.jpg?token=GHSAT0AAAAAACKUAAMA5GCCIEG6E72PSV5UZLD7AWA" title="Result of an empty search">
     <n><figcaption>Result of an empty search</figcaption></n>
 </p>
-
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/data_base_reach_3.jpg?token=GHSAT0AAAAAACKUAAMAITQT3L2S7ODGOQZKZLD6WNA" title="Comparing with the database">
@@ -268,7 +268,9 @@ For example, You can perform other searches, such as appointments scheduled for 
   <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/Imagem17.jpg?token=GHSAT0AAAAAACKUAAMBGYWJSOMX4NAM7SCGZLD7FNA" title="Screen for searching appointments scheduled for 22:22">
     <n><figcaption>Screen for searching appointments scheduled for 22:22.</figcaption></n>
 </p>
+
 You can narrow the search down to January.
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/adrielvasques/agenda_pessoal/main/images/Imagem18.png?token=GHSAT0AAAAAACKUAAMBM7TOWGFXU2YR2VCSZLD7GVQ" title="Screen for searching appointments scheduled for 22:22 in January">
     <n><figcaption>Screen for searching appointments scheduled for 22:22 in January.</figcaption></n>
