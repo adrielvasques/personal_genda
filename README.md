@@ -155,7 +155,7 @@ There are three important folders in agendajava:
 - Conexaodb contains the structure for connecting to the database.
 - Entity contains the simplest concept of a task.
 - In the main folder, you will find screens and content related to user display.
-- The entry point is the App.java file."
+- The entry point is the App.java file.
 
 
 ## Application Walkthrough
